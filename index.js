@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const List = require('./model/list.js');
 
 /* Databas connection */
 const mongoose = require('mongoose');
@@ -25,7 +26,11 @@ app.get('/', (req, res) => {
 
 // API
 app.post('/api/v1/add', (req, res) => {
-    console.log(req)
+    console.log(req.body)
+})
+
+app.get('/api/v1/load', (req, res) => {
+
 })
 
 const server = app.listen(8000, () => {
