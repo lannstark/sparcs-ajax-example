@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/lannstark/sparcs-ajax-example/issues"
   },
-  "homepage": "https://github.com/lannstark/sparcs-ajax-example#readme"
+  "homepage": "https://github.com/lannstark/sparcs-ajax-example#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.6",
+    "nodemon": "^1.18.4"
+  }
 }
