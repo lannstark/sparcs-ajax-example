@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost/ajax-example')
 
 // MiddleWare seeting
 app.use(express.static('public/views'));
+app.use(express.static('public/scripts'));
 app.set('views', __dirname+'/public/views');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.json());
@@ -21,16 +22,36 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Routing
 app.get('/', (req, res) => {
-    res.render('main.html');
+    res.render('/main.html');
 })
 
 // API
 app.post('/api/v1/add', (req, res) => {
-    console.log(req.body)
+    // name, todo, date
+
+    if (req.body.name.length === 0 || req.body.todo.length === 0 || req.body.date.length === 0) {
+        console.log('Wrong input')
+        return res.redirect('/main.html');
+    }
+
+    const list = new List();
+    list.name = req.body.name;
+    list.todo = req.body.todo;
+    list.date = req.body.date;
+
+    list.save(err => {
+        if (err) {
+            console.log(err);
+            return res.redirect('/main.html');
+        }
+        return res.redirect('/main.html');
+    });
 })
 
 app.get('/api/v1/load', (req, res) => {
-
+    List.find({}, (err, lists) => {
+        return res.json(lists)
+    })
 })
 
 const server = app.listen(8000, () => {

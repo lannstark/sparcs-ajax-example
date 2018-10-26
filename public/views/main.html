@@ -17,13 +17,13 @@
                 <div>이름 : <input type="text" name="name"/></div>
                 <div>해야할 일 : <input type="text" name="todo"/></div>
                 <div>날짜 입력 : <input type="date" name="date"/></div>
-                <button id="btn_submit" type="submit">제출</button>
+                <button id="btn_submit" type="submit">등록</button>
             </form>
         </div>
         <div class="list-wrapper">
             <div class="main">
                 <button id="btn_load">불러오기</button>
-                <div class="todolist">
+                <div id="todolist" class="todolist">
                     <div class="todo">OO님이 OOOO-OO-OO일에 ~~라는 일정이 있습니다.</div>
                     <div class="todo">OO님이 OOOO-OO-OO일에 ~~라는 일정이 있습니다.</div>
                 </div>
@@ -32,6 +32,6 @@
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-    <script type="text/javascript" src="./../scripts/control.js"></script>
+    <script type="text/javascript" src="./control.js"></script>
 </body>
 </html>
